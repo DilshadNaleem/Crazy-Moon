@@ -1,0 +1,468 @@
+.navbar {
+    background: rgba(15, 15, 35, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(53, 82, 154, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(53, 82, 154, 0.3);
+}
+
+.nav-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 80px;
+    font-size: 20px;
+}
+
+.nav-brand {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.nav-brand .brand-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+}
+
+.nav-links button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 8px 16px;
+  font: inherit;
+  transition: color 0.3s ease;
+}
+
+.nav-links button.active {
+  color: #ffffff;
+  position: relative;
+}
+
+.nav-links button.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: linear-gradient(90deg, #4a6bff, #8a2be2);
+  box-shadow: 0 0 5px #4a6bff;
+  animation: slideIn 0.3s ease;
+}
+
+.brand-button.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: linear-gradient(90deg, #4a6bff, #8a2be2);
+  box-shadow: 0 0 5px #4a6bff;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Hover effect for non-active items */
+.nav-links button:not(.active)::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: linear-gradient(90deg, #4a6bff, #8a2be2);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 5px #4a6bff;
+}
+
+.nav-links button:not(.active):hover::after {
+  width: 100%;
+}
+
+.nav-links button:hover {
+  color: #007bff;
+}
+
+.brand-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(100, 150, 255, 0.7);
+    letter-spacing: 1px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+}
+
+.brand-subtitle {
+    font-size: 0.9rem;
+    color: #a0a0ff;
+    margin-top: 2px;
+    letter-spacing: 2px;
+    position: fixed;
+    top: 50px;
+    left: 20px;
+    z-index: 1001;
+}
+
+/* Desktop Navigation */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    margin: 10;
+    padding: 100px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #c0c0ff;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 10px 0;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+.nav-links li a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(100, 150, 255, 0.8);
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, #4a6bff, #8a2be2);
+    transition: width 0.3s ease;
+    box-shadow: 0 0 5px #4a6bff;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 24px;
+    position: relative;
+}
+
+.mobile-menu-btn span {
+    background-color: #c0c0ff;
+    height: 3px;
+    width: 100%;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 3px rgba(100, 150, 255, 0.5);
+}
+
+.mobile-menu-btn span:nth-child(1) {
+    top: 0;
+}
+
+.mobile-menu-btn span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mobile-menu-btn span:nth-child(3) {
+    bottom: 0;
+}
+
+/* X Icon when menu is open */
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px #4a6bff;
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px #4a6bff;
+}
+
+/* 768px Mobile Design - Tablet Portrait */
+@media (max-width: 1300px) {
+  .navbar {
+    height: 70px;
+  }
+  
+  .nav-container {
+    height: 70px;
+    padding: 0 15px;
+  }
+  
+  .brand-name {
+    display: none;
+  }
+  
+  .brand-subtitle {
+    display: none;
+  }
+  
+  /* Show MDN initials with optimized positioning */
+  .nav-brand::before {
+    content: "MDN";
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(100, 150, 255, 0.7);
+    letter-spacing: 1px;
+    position: fixed;
+    top: 22px;
+    left: 15px;
+    z-index: 1001;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    right: 20px;
+    width: 28px;
+    height: 22px;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: rgba(15, 15, 35, 0.98);
+    backdrop-filter: blur(15px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 30px 0;
+    gap: 15px;
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-top: 1px solid rgba(53, 82, 154, 0.3);
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-links li {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-links li button,
+  .nav-links li a {
+    padding: 14px 25px;
+    display: block;
+    text-align: center;
+    width: 220px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    font-size: 1.05rem;
+    margin: 5px 0;
+  }
+
+  .nav-links li button:hover,
+  .nav-links li a:hover {
+    background: rgba(53, 82, 154, 0.25);
+    color: #ffffff;
+    border: 1px solid rgba(100, 150, 255, 0.4);
+    box-shadow: 0 0 15px rgba(53, 82, 154, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Mobile button styles */
+  .nav-links button {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #c0c0ff;
+    cursor: pointer;
+    font-size: 1.05rem;
+    padding: 14px 25px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links button.active {
+    color: #ffffff;
+    background: rgba(53, 82, 154, 0.25);
+    border: 1px solid rgba(100, 150, 255, 0.4);
+    box-shadow: 0 0 15px rgba(53, 82, 154, 0.4);
+    transform: scale(1.02);
+  }
+
+  .nav-external-link {
+    text-decoration: none;
+    color: #c0c0ff;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .nav-external-link:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+}
+
+/* 1000px and below - Hide full brand name */
+@media (max-width: 1000px) and (min-width: 769px) {
+  .brand-name {
+    display: none;
+  }
+  
+  .brand-subtitle {
+    display: none;
+  }
+  
+  .nav-brand::before {
+    content: "MDN";
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(100, 150, 255, 0.7);
+    letter-spacing: 1px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+  }
+}
+
+/* Small Mobile Devices - 480px and below */
+@media (max-width: 480px) {
+  .navbar {
+    height: 65px;
+  }
+  
+  .nav-container {
+    height: 65px;
+    padding: 0 12px;
+  }
+  
+  .nav-brand::before {
+    font-size: 1.4rem;
+    top: 20px;
+    left: 12px;
+  }
+
+  .nav-links {
+    top: 65px;
+    height: calc(100vh - 65px);
+    padding: 25px 0;
+    gap: 12px;
+  }
+
+  .nav-links li button,
+  .nav-links li a {
+    width: 200px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    margin: 3px 0;
+  }
+
+  .mobile-menu-btn {
+    right: 12px;
+    width: 26px;
+    height: 20px;
+  }
+}
+
+/* Large Tablets - 769px to 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-container {
+    padding: 0 25px;
+  }
+  
+  .nav-links {
+    gap: 30px;
+  }
+  
+  .nav-links li a {
+    font-size: 0.95rem;
+    padding: 8px 0;
+  }
+}
+
+/* Smooth animations for all interactive elements */
+.nav-links li button,
+.nav-links li a,
+.mobile-menu-btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced focus states for accessibility */
+.nav-links button:focus,
+.nav-links a:focus,
+.mobile-menu-btn:focus {
+  outline: 2px solid rgba(100, 150, 255, 0.6);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Loading animation for menu items */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-links.active li {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
+.nav-links.active li:nth-child(2) { animation-delay: 0.2s; }
+.nav-links.active li:nth-child(3) { animation-delay: 0.3s; }
+.nav-links.active li:nth-child(4) { animation-delay: 0.4s; }
+.nav-links.active li:nth-child(5) { animation-delay: 0.5s; }
