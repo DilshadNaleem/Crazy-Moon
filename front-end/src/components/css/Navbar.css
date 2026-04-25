@@ -243,7 +243,7 @@
   
   /* Show MDN initials with optimized positioning */
   .nav-brand::before {
-    content: "MDN";
+    content: "CM🌕";
     font-size: 1.6rem;
     font-weight: 700;
     color: #ffffff;
@@ -361,7 +361,7 @@
   }
   
   .nav-brand::before {
-    content: "MDN";
+    content: "CM🌕";
     font-size: 1.7rem;
     font-weight: 700;
     color: #ffffff;

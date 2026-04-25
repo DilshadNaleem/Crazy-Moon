@@ -5,7 +5,6 @@ import './css/Navbar.css';
 function Navbar({
   scrollToHome,
   scrollToAbout,
-  scrollToIceCreams,
   scrollToFreshJuices,
   scrollToContact,
   activeSection,
@@ -24,7 +23,6 @@ function Navbar({
   const navItems = [
     { id: 'home', label: 'Home', action: scrollToHome },
     { id: 'about', label: 'About', action: scrollToAbout },
-    { id: 'iceCreams', label: 'Ice Creams', action: scrollToIceCreams },
     { id: 'freshJuices', label: 'Fresh Juices', action: scrollToFreshJuices },
     { id: 'contact', label: 'Contact', action: scrollToContact },
   ];
@@ -38,8 +36,8 @@ function Navbar({
             className={`brand-button ${activeSection === 'home' ? 'active' : ''}`}
             onClick={() => handleNavClick(scrollToHome)}
           >
-            <span className="brand-name">Crazy Moon</span>
-            <span className="brand-subtitle">පිස්සු හැදෙන සඳ</span>
+            <span className="brand-name">Crazy Moon 🌕</span>
+            <span className="brand-subtitle">පිස්සු හැදෙන සඳ 🌕</span>
           </button>
         </div>
 
@@ -56,17 +54,25 @@ function Navbar({
             </li>
           ))}
 
+        <li>
+            <NavLink to="/IceCreamTypes" onClick={closeMenu}>
+              Ice Creams
+            </NavLink>
+          </li>
           {/* External Links using NavLink for automatic active styling */}
           <li>
             <NavLink to="/services" onClick={closeMenu}>
               Services
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/blog" onClick={closeMenu}>
               Blog
             </NavLink>
           </li>
+
+          
         </ul>
 
         {/* Mobile Menu Icon */}

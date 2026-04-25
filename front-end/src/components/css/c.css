@@ -1,0 +1,43 @@
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  transition: background-color 0.8s ease;
+}
+
+/* Center content */
+.ice-cream-display {
+  text-align: center;
+}
+
+/* Image styling */
+.ice-image {
+  width: 350px;
+  border-radius: 15px;
+
+  animation: fallFade 0.8s ease;
+}
+
+/* Title */
+.ice-title {
+  margin-top: 20px;
+  font-size: 28px;
+  color: white;
+}
+
+/* Animation */
+@keyframes fallFade {
+  0% {
+    transform: translateY(-150px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

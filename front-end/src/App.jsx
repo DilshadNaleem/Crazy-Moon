@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import HomePageIceTransition from './components/HomePageIceTransition';
 
 // 1. Define your page components
 const Home = () => <h1>🏠 Home</h1>;
@@ -21,10 +22,11 @@ export default function App() {
     <BrowserRouter>
       <Navbar />
       
-      <div style={{ padding: '20px' }}>
+      <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/ profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/IceCreamTypes" element={<HomePageIceTransition />} />
           {/* The "*" path catches any URL that doesn't match the above */}
           <Route path="*" element={<NotFound />} />
         </Routes>
